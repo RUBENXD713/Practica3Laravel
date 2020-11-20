@@ -47,7 +47,7 @@ class ComentariossController extends Controller
         $comentarios->Persona=$request->usuario;
         $comentarios->save();
         Mail::to($user->email)->send(new ComentarioNuevo());
-        Mail::to('hernandezdiazruben@gmail.com')->send(new ComentarioNuevoProducto($user));
+        Mail::to($producto)->send(new ComentarioNuevoProducto($user));
         return '¡Comentario guardado Guardado!';
     }
 
